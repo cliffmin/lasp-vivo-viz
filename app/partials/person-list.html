@@ -1,1 +1,29 @@
-Hello World
+<h1>Personel List</h1>
+<a href="/lasp-vivo-viz/app/index.html#/">Main Page</a>
+<div class="container-fluid">
+	<div id="circle">&nbsp;</div>
+	<div class="row-fluid">
+		<div class="span2">
+			<!--Sidebar content-->
+			Search: <input ng-model="query">
+			Sort by:
+			<select ng-model="orderProp">
+				<option value="name.value">Alphabetical (Asc)</option>
+				<option value="-name.value">Alphabetical (Dsc)</option>
+			</select>
+		</div>
+		<p>
+			Number of Results: {{(persons.results.bindings|filter:query).length}}
+		</p>
+		<div class="span10">
+			<!--Body content-->
+			<p class="error">{{error}}</p>
+			<ul class="persons">
+				<li ng-repeat="person in persons.results.bindings | filter:query | orderBy:orderProp" class="thumbnail">
+          			<p>Name: <a href="{{person.per.value}}">{{person.name.value}}</a></p>
+          			<p>Email: {{person.email.value}}</p>
+        		</li>
+			</ul>
+		</div>
+	</div>
+</div>

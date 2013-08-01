@@ -6,7 +6,7 @@ var vivoviz = angular.module("vivoviz", [])
 $routeProvider.
 when('/', { templateUrl: 'partials/main-page.html' }).
 when('/personel_list', { controller: PersonListCtrl, templateUrl: 'partials/person-list.html' }).
-when('/circles', { templateUrl: 'partials/circles.html' }).
+when('/circles', { controller: JSONCtrl, templateUrl: 'partials/circles.html' }).
 otherwise({ redirectTo: '/' });
  
 $httpProvider.defaults.withCredentials = true;
