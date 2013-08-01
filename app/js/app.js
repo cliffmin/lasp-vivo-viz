@@ -1,10 +1,14 @@
 'use strict';
 
 /* App Module */
-
-angular.module('vivoviz', ['sparqlServices']).
-  config(['$routeProvider', function($routeProvider) {
-  $routeProvider.
-      when('/vivo', {templateUrl: 'partials/vivo-viz.html',   controller: VIVOVizCtrl}).
-      otherwise({redirectTo: '/vivo'});
-}]);
+var vivoviz = angular.module("vivoviz", [])
+.config(function ($routeProvider, $httpProvider) {
+$routeProvider.
+when('/', { templateUrl: 'partials/main-page.html' }).
+when('/personel_list', { controller: PersonListCtrl, templateUrl: 'partials/person-list.html' }).
+when('/circles', { templateUrl: 'partials/circles.html' }).
+otherwise({ redirectTo: '/' });
+ 
+$httpProvider.defaults.withCredentials = true;
+delete $httpProvider.defaults.headers.common["X-Requested-With"];
+});

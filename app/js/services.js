@@ -3,39 +3,10 @@
 /* Services */
 
 angular.module('sparqlServices', ['ngResource']).
-    factory('Person', function sparqlQueryJson($resource){
-      var querypart = "query=" + escape(queryStr);
+    factory('Person', function($resource){
+    	return $resource('http://lasp-db-dev:3030/VIVO/query', {}, {
+    		query: {method:'POST', params: {query:'PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#> PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#> PREFIX owl:   <http://www.w3.org/2002/07/owl#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX vivo: <http://vivoweb.org/ontology/core#> PREFIX laspcms: <http://localhost:8080/laspcms#> SELECT ?name ?email WHERE { ?per a vivo:UndergraduateStudent . ?per rdfs:label ?name . ?per vivo:primaryEmail ?email .} order by ?name ?email'}, isArray:false}
+    	});
+	});
     
-      // Get our HTTP request object.
-      var xmlhttp = null;
-      if(window.XMLHttpRequest) {
-        xmlhttp = new XMLHttpRequest();
-     } else if(window.ActiveXObject) {
-        //Code for older versions of IE, like IE6 and before.
-       xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-     } else {
-       alert('Perhaps your browser does not support XMLHttpRequests?');
-     }
     
-     // Set up a POST with JSON result format.
-     xmlhttp.open('POST', endpoint, true); // GET can have caching probs, so POST
-     xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-     xmlhttp.setRequestHeader("Accept", "application/sparql-results+json");
-    
-     // Set up callback to get the response asynchronously.
-     xmlhttp.onreadystatechange = function() {
-       if(xmlhttp.readyState == 4) {
-         if(xmlhttp.status == 200) {
-           // Do something with the results
-           if(isDebug) alert(xmlhttp.responseText);
-           callback(xmlhttp.responseText);
-         } else {
-           // Some kind of error occurred.
-           alert("Sparql query error: " + xmlhttp.status + " "
-               + xmlhttp.responseText);
-         }
-       }
-     };
-     // Send the query to the endpoint.
-     xmlhttp.send(querypart);
-};
