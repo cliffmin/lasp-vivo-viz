@@ -20,7 +20,13 @@ function PersonListCtrl($scope, $http) {
 }
 
 function JSONCtrl($scope, $http){
-	 $http.get('json/miserables.json').success(function(data) {
+	$http.get('json/miserables.json').success(function(data) {
+		$scope.data = data;
+	});
+}
+
+function SparqlCtrl($scope, $http){
+	$http.get('json/miserables.json').success(function(data) {
 		$scope.data = data;
 	});
 }
