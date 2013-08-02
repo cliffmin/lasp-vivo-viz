@@ -19,18 +19,23 @@ function PersonListCtrl($scope, $http) {
 	$scope.orderProp = "name.value";
 }
 
+//read in a local json file
 function JSONCtrl($scope, $http){
 	$http.get('json/miserables.json').success(function(data) {
 		$scope.data = data;
 	});
 }
 
+//space to get and parse sparql json for use with lodlive functions
 function SparqlCtrl($scope, $http){
-	$http.get('json/miserables.json').success(function(data) {
-		$scope.data = data;
+	var properties;
+	$http.get('json/properties.json').success(function(data) {
+		properties = data;
 	});
+	//now we need to parse and return through the $scope
 }
 
+//example of how to run RESTful SPARQL Queries
 function SimpleNodeCtrl($scope, $http) {
 	var queryStr = "SELECT DISTINCT * WHERE {?object ?property <http://webdev1.lasp.colorado.edu:57529/vivo/individual/n3515>}"
 	var queryPart = "query=" + escape(queryStr);	
@@ -55,6 +60,4 @@ function SimpleNodeCtrl($scope, $http) {
 	}).success(function(data,status) {
 		$scope.object = data;
 	});
-	
-	//Now that we have the Nodes we need to organize them in a way that makes sense to d3
 }

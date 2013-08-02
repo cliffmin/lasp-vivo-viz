@@ -1,6 +1,7 @@
 'use strict';
 
 /* Directives */
+//new directive to create a force node graph
 vivoviz.directive('ghVisualization', function () {
 	
 	//initialize some variables for our graphic
