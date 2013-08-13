@@ -5,15 +5,16 @@
 		<title>VIVO</title>
 		<meta name="description" content="" />
 		<meta name="author" content="Ty" />
-		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<!-- Date: 2013-07-29 -->
 		
-		<link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="css/wilma.css">
 		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/app.css">
 		<script src="lib/d3/d3.v3.js"></script>
 		<script src="lib/jQuery/jquery-1.10.2.min.js"></script>
 		<script src="lib/angular/angular.js"></script>
@@ -22,13 +23,15 @@
 		<script src="js/directives.js"></script>
 	</head>
 
-	<body ng-controller="PersonListCtrl">
-		<header>
-			VIVO Visualization Tool
+	<body class="no-logo fae" style="padding-top:60px">
+		<header id="branding" role="banner">
+			<h1 class="culasp-logo"></h1>
 		</header>
 			<div ng-view></div>
 		<footer>
-			Created by: Tyler Traver and the LASP VIVO Development Team
+			<p>Created by: Tyler Traver and the LASP VIVO Development Team</p>
+			<h3>Powered By:</h3>
+			<h1 class="angularjs-logo"></h1>
 		</footer>
 	</body>
 </html>

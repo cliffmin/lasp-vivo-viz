@@ -157,7 +157,6 @@ body {
   font-size: 13px;
   line-height: 18px;
   color: #333333;
-  background-color: #ffffff;
 }
 
 a {
@@ -309,7 +308,7 @@ a:hover {
 
 .row-fluid [class*="span"] {
   display: block;
-  float: left;
+  float: center;
   width: 100%;
   min-height: 28px;
   margin-left: 2.127659574%;
@@ -4457,6 +4456,7 @@ input[type="submit"].btn.btn-mini {
   padding: 4px;
   line-height: 1;
   border: 1px solid #ddd;
+  background-color: #FFFFFF;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
           border-radius: 4px;

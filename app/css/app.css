@@ -1,7 +1,7 @@
 /* app css stylesheet */
 
 body {
-  margin: 0px;
+  margin: 25px;
   padding: 20px;
 }
 
@@ -17,4 +17,38 @@ body {
 
 .error {
   color: red;
+}
+
+html { 
+  background: url(../images/flatirons_background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+h1.culasp-logo {
+	position: relative;
+	width:442px;
+	height:59px;
+	top:28px;
+	left:10px;
+	background: url(../images/cu-lasp-logo.png) 0 0 no-repeat;
+}
+
+svg {
+	background-color:rgba(124,124,124,0.75)
+}
+
+h1.angularjs-logo {
+	position: relative;
+	width:100px;
+	height:60px;
+	top:5px;
+	left:10px;
+	background: url(../images/AngularJS-small.png) 0 0 no-repeat;
+}
+
+app{
+	padding:50px;
 }
