@@ -87,3 +87,8 @@ font-size: 1em;
 color: rgba(256,256,256,1);
 background-color: rgba(00,0,0,0.7);
 }
+
+.done-true {
+  text-decoration: line-through;
+  color: grey;
+}

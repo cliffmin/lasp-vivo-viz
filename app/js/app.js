@@ -8,6 +8,7 @@ when('/', { templateUrl: 'partials/main-page.html' }).
 when('/personel_list', { controller: PersonListCtrl, templateUrl: 'partials/person-list.html' }).
 when('/circles', { controller: JSONCtrl, templateUrl: 'partials/circles.html' }).
 when('/lodlive', { controller: SparqlCtrl, templateUrl: 'partials/lodlive.html' }).
+when('/skills', { controller: SkillsCtrl, templateUrl: 'partials/skills.html' }).
 otherwise({ redirectTo: '/' });
 
 //enable crossdomain requests
